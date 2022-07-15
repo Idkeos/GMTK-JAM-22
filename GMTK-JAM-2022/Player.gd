@@ -5,6 +5,9 @@ export var speed = 12
 var velocity = Vector3.ZERO
 
 func _physics_process(delta):
+	move()
+	
+func move():
 	var direction = Vector3.ZERO
 	
 	direction.x += Input.get_axis("move_left" ,"move_right")
