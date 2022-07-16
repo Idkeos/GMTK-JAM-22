@@ -29,5 +29,7 @@ func check_touching_enemies():
 	for index in range(get_slide_count()):
 		var collision = get_slide_collision(index)
 		if collision.collider.is_in_group("enemy"):
-			emit_signal("player_touching_enemy_in_overworld", collision.collider.get_enemy_battle_group_name())
+			var enemy_group_name = collision.collider.get_enemy_battle_group_name()
+			collision.collider.queue_free()
+			emit_signal("player_touching_enemy_in_overworld", enemy_group_name)
 			break
