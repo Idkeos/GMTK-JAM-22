@@ -1,18 +1,21 @@
 extends Node
 
-signal new_fighter(fighter)
+signal new_fighter(fighter, is_player)
+signal fighter_took_damage(fighter, amount)
 signal fighter_died(fighter)
 signal attack(fighter)
 
 export var max_hp = 10
+export var is_player = false
 var hp
 
 func _ready():
 	hp = max_hp
-	emit_signal("new_fighter", self)
+	emit_signal("new_fighter", self, is_player)
 
 func take_damage(amount):
 	hp -= amount
+	print("dsj")
 	if hp <= 0:
 		die()
 		
