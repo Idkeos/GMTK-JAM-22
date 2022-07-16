@@ -28,5 +28,5 @@ func check_touching_enemies():
 		var collision = get_slide_collision(index)
 		if collision.collider.is_in_group("enemy"):
 			print("touched an enemy")
-			# take damage or something
+			# take damage or somethings
 			break
