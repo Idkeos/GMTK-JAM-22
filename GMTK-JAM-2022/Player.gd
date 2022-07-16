@@ -1,11 +1,14 @@
 extends KinematicBody
 
+signal player_touching_enemy_in_overworld(enemy_battle_group_name)
+
 export var speed = 12
 
 var velocity = Vector3.ZERO
 
 func _physics_process(delta):
 	move()
+	check_touching_enemies()
 	
 func move():
 	var direction = Vector3.ZERO
@@ -21,3 +24,10 @@ func move():
 	velocity.z = direction.z * speed
 	
 	velocity = move_and_slide(velocity, Vector3.UP)
+
+func check_touching_enemies():
+	for index in range(get_slide_count()):
+		var collision = get_slide_collision(index)
+		if collision.collider.is_in_group("enemy"):
+			emit_signal("player_touching_enemy_in_overworld", collision.collider.get_enemy_battle_group_name())
+			break

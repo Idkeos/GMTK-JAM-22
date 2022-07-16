@@ -12,7 +12,7 @@ albedo_color = Color( 0.611765, 0.188235, 0.188235, 1 )
 material = SubResource( 2 )
 size = Vector3( 2, 4, 2 )
 
-[node name="Enemy1" type="KinematicBody"]
+[node name="Enemy1" type="KinematicBody" groups=["enemy"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 script = ExtResource( 1 )
 
