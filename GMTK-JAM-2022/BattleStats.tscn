@@ -6,3 +6,4 @@
 script = ExtResource( 1 )
 
 [connection signal="attack" from="." to="." method="_on_BattleStats_attack"]
+[connection signal="test1" from="." to="." method="_on_BattleStats_test1"]

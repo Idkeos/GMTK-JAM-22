@@ -23,6 +23,10 @@ func move():
 	
 	velocity = move_and_slide(velocity, Vector3.UP)
 
+func attack():
+	if Input.is_action_just_pressed("attack"):
+		pass
+
 func check_touching_enemies():
 	for index in range(get_slide_count()):
 		var collision = get_slide_collision(index)
